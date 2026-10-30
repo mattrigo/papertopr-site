@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paper to PR — Keep the notebook. See the whole story.</title>
-<meta name="description" content="Paper to PR turns your handwritten training journal into your training history. Photograph a page — your workouts are transcribed, organized, and scored. Paper first, always.">
+<title>Paper to PR: Keep the notebook. See the whole story.</title>
+<meta name="description" content="Paper to PR reads your handwritten training journal and turns it into your training history. Photograph a page. Your workouts become a searchable record with a Strength Index. Paper first, always.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,8 +71,8 @@
   .panel .plabel{font-size:11px;font-weight:750;color:var(--muted);margin-bottom:14px}
   .paper{background:#FAF6ED;border-color:transparent;padding:14px;display:flex}
   .paper img{display:block;width:100%;height:100%;min-height:0;object-fit:cover;object-position:top;border-radius:8px;aspect-ratio: 4/3.1}
-  .tf-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--muted)}
-  .tf-arrow .chip{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--accent);background:var(--accent-soft);padding:6px 10px;border-radius:999px;white-space:nowrap}
+  .tf-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--muted);text-align:center}
+  .tf-arrow .cap{font-size:13px;color:var(--dim);max-width:11em;line-height:1.4}
   .tf-arrow .arr{font-size:20px;color:var(--dim)}
   @media(max-width:880px){.tf-arrow{flex-direction:row}.tf-arrow .arr{transform:rotate(90deg)}}
   .setline{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:14px;padding:8px 0;border-bottom:1px solid var(--border);font-variant-numeric:tabular-nums}
@@ -82,20 +82,18 @@
   .idx-chip{margin-top:16px;display:flex;align-items:center;gap:12px;background:var(--lagoon);border-radius:12px;padding:13px 16px}
   .idx-chip .n{font-family:var(--display);font-weight:700;font-size:26px;letter-spacing:-.02em}
   .idx-chip .t{font-size:12.5px;color:rgba(255,255,255,.74);line-height:1.35}
-  .pill{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.14);color:#fff}
+  .idx-chip .up{margin-left:auto;font-family:var(--mono);font-size:13px;font-weight:700;color:#fff}
 
   /* sections */
   section{padding:84px 0 8px}
   h2{font-family:var(--display);font-weight:700;letter-spacing:-.03em;font-size:clamp(30px,4vw,42px);line-height:1.1;max-width:16em}
   .sub{margin-top:14px;font-size:17.5px;color:var(--dim);max-width:40em}
-  .kicker{font-size:11px;font-weight:750;color:var(--accent);margin-bottom:14px}
 
   /* index band */
   .lagoon{background:var(--lagoon);border-radius:24px;padding:52px;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;margin-top:52px}
   @media(max-width:880px){.lagoon{grid-template-columns:1fr;padding:36px 26px}}
   .lagoon h2{color:#fff}
   .lagoon .sub{color:rgba(255,255,255,.74)}
-  .lagoon .kicker{color:rgba(255,255,255,.6)}
   .arc-wrap{display:flex;align-items:center;gap:28px;flex-wrap:wrap}
   .arc{position:relative;width:158px;height:158px;flex:none}
   .arc svg{transform:rotate(-90deg)}
@@ -109,27 +107,21 @@
   .bar-row .v{font-family:var(--mono);font-weight:700;text-align:right;color:#fff}
   .lagoon .foot-note{grid-column:1/-1;font-family:var(--mono);font-size:11.5px;color:rgba(255,255,255,.55);border-top:1px solid rgba(255,255,255,.16);padding-top:18px}
 
-  /* steps + principles */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
-  @media(max-width:880px){.steps{grid-template-columns:1fr}}
-  .step{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:26px}
-  .step .num{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--accent)}
-  .step h3{font-family:var(--display);font-weight:600;font-size:20.5px;letter-spacing:-.015em;margin:12px 0 8px}
-  .step p{color:var(--dim);font-size:15px}
-  .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:56px;border-top:1px solid var(--border);padding-top:38px}
-  @media(max-width:880px){.principles{grid-template-columns:1fr}}
-  .principle h3{font-family:var(--display);font-weight:600;font-size:17.5px;margin-bottom:7px}
-  .principle p{color:var(--dim);font-size:14.5px}
+  /* ledger rows (steps + principles) */
+  .ledger{margin-top:40px;border-top:1px solid var(--border)}
+  .row{display:grid;grid-template-columns:64px 1fr;gap:22px;padding:28px 0;border-bottom:1px solid var(--border)}
+  @media(max-width:560px){.row{grid-template-columns:1fr}}
+  .row .num{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--accent)}
+  .row h3{font-family:var(--display);font-weight:600;font-size:20.5px;margin-bottom:6px}
+  .row p{color:var(--dim);font-size:15px;max-width:44em}
 
   /* pricing */
-  .price-panel{max-width:600px;margin:48px auto 0;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;text-align:center}
-  .price-big{font-family:var(--display);font-weight:700;font-size:56px;letter-spacing:-.03em;line-height:1}
+  .price-big{font-family:var(--display);font-weight:700;font-size:56px;letter-spacing:-.03em;line-height:1;margin-top:28px}
   .price-big small{font-size:19px;color:var(--dim);font-weight:500;letter-spacing:0}
-  .price-lines{font-family:var(--mono);font-size:13.5px;color:var(--dim);margin-top:20px;line-height:2;font-variant-numeric:tabular-nums}
+  .price-lines{font-size:17.5px;color:var(--dim);margin-top:22px;line-height:1.7;max-width:32em}
   .price-lines b{color:var(--text)}
-  .center{text-align:center}.center h2{margin:0 auto}.center .sub{margin-left:auto;margin-right:auto}
 
-  .waitlist{max-width:600px;margin:0 auto;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;text-align:center}
+  .waitlist{max-width:560px}
   .waitlist form{display:flex;gap:12px;margin-top:26px}
   @media(max-width:560px){.waitlist form{flex-direction:column}}
   .waitlist input{flex:1;min-width:0;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:16px;padding:14px 16px;font-family:var(--ui)}
@@ -171,11 +163,11 @@
     <div class="wrap">
       <p class="label">For lifters who still write it down <span class="dot">·</span> iPhone</p>
       <h1>Keep the notebook.<br>See the <span class="grad">whole story.</span></h1>
-      <p class="lede">Paper to PR turns your handwritten training journal into your training history. <strong>Photograph a page — or paste your log as text</strong> — your workouts are transcribed, organized, and scored, so years of ink become progress you can actually see.</p>
+      <p class="lede">You kept the notebook. Paper to PR reads it. <strong>Photograph a page, or paste your log as text.</strong> Your sets, reps, and weights become a history you can search, with a Strength Index that covers all of it.</p>
       <div class="cta-row">
         <a class="btn" href="#waitlist">Get notified at launch</a>
         <a class="btn ghost" href="#how">See how it works</a>
-        <span class="cta-sub">Free 14-day trial at launch · We'll remind you before it ends</span>
+        <span class="cta-sub">Free 14-day trial at launch · We remind you before it ends</span>
       </div>
 
       <div class="transform">
@@ -183,7 +175,7 @@
           <img src="assets/journal-page.jpg" alt="A handwritten training journal page: squat, bench, row, and a dead hang, written in ink">
         </div>
         <div class="tf-arrow" aria-hidden="true">
-          <span class="chip">ONE PHOTO · OR PASTED TEXT</span>
+          <span class="cap">One photo, or pasted text.</span>
           <span class="arr">→</span>
         </div>
         <div class="panel">
@@ -195,7 +187,7 @@
           <div class="idx-chip">
             <span class="n">55</span>
             <span class="t">Strength Index<br>across every pattern</span>
-            <span class="pill" style="margin-left:auto">↑ 4</span>
+            <span class="up">↑ 4</span>
           </div>
         </div>
       </div>
@@ -207,9 +199,8 @@
     <div class="wrap">
       <div class="lagoon">
         <div>
-          <p class="kicker">The Strength Index</p>
           <h2>One number for years of work.</h2>
-          <p class="sub">Seven patterns — Squat, Hinge, Push, Pull, Arms, Carry, Core — each scored 0–100 against elite reference lifts scaled to your ideal bodyweight. Your number, not a leaderboard. Watch it climb across a training career, one journal page at a time.</p>
+          <p class="sub">Seven patterns: Squat, Hinge, Push, Pull, Arms, Carry, Core. Each scores 0 to 100 against elite lifts scaled to your ideal bodyweight. No leaderboard. Just your number, over your whole training life.</p>
         </div>
         <div>
           <div class="arc-wrap">
@@ -231,7 +222,7 @@
             </div>
           </div>
         </div>
-        <p class="foot-note">Benchmarks rescale instantly when your ideal bodyweight changes. Illustrative lifter. A pattern's first score is held across your whole history, so your past scores update when you train something new.</p>
+        <p class="foot-note">Example lifter, not real data. Benchmarks rescale when your ideal bodyweight changes. Train a new pattern and your old scores update to include it.</p>
       </div>
     </div>
   </section>
@@ -239,37 +230,51 @@
   <!-- HOW IT WORKS -->
   <section id="how">
     <div class="wrap">
-      <p class="kicker">How it works</p>
       <h2>The journal stays the original. The app does the bookkeeping.</h2>
-      <div class="steps">
-        <div class="step">
+      <div class="ledger">
+        <div class="row">
           <p class="num">01</p>
-          <h3>Write it in ink</h3>
-          <p>Train the way you already do. Your paper journal is the record — no typing sets into a phone between lifts, no app to feed mid-workout.</p>
+          <div>
+            <h3>Write it in ink</h3>
+            <p>Train the way you already do. Your paper journal is the record. No typing sets into your phone between lifts.</p>
+          </div>
         </div>
-        <div class="step">
+        <div class="row">
           <p class="num">02</p>
-          <h3>Snap the page — or paste the text</h3>
-          <p>Photograph the page when you're done, or paste a plain-text log. Paper to PR drafts the session — photo pages wait for your review line by line before anything is saved, and pasted imports can be undone from the receipt.</p>
+          <div>
+            <h3>Snap the page, or paste the text</h3>
+            <p>Photograph the page when you are done, or paste a plain-text log. Photo pages wait for your line-by-line review before anything saves. Pasted imports can be undone from the receipt.</p>
+          </div>
         </div>
-        <div class="step">
+        <div class="row">
           <p class="num">03</p>
-          <h3>See the whole story</h3>
-          <p>Every session joins your full history — trends, totals, and your Strength Index across months and years of training, not just this week. Big backfills run in the background: leave the app and they'll be ready when you come back.</p>
+          <div>
+            <h3>Look back over years</h3>
+            <p>Every session joins your full history. Trends, totals, and your Strength Index, across months and years, not just this week. Big backfills run in the background. Leave the app and they will be ready when you come back.</p>
+          </div>
         </div>
       </div>
-      <div class="principles">
-        <div class="principle">
-          <h3>Paper first</h3>
-          <p>The notebook is the original and stays that way. Paper to PR reads your journal; it never replaces it.</p>
+      <div class="ledger">
+        <div class="row">
+          <span></span>
+          <div>
+            <h3>Paper first</h3>
+            <p>The notebook is the original. It stays that way. Paper to PR reads your journal. It does not replace it.</p>
+          </div>
         </div>
-        <div class="principle">
-          <h3>Private by default</h3>
-          <p>No feeds, no followers, no streaks to protect. Sign in with Apple or Google and your history syncs across devices — and you can export it anytime, even without a subscription.</p>
+        <div class="row">
+          <span></span>
+          <div>
+            <h3>Private by default</h3>
+            <p>No feeds. No followers. No streaks. Sign in with Apple or Google and your history syncs across your devices. You can export it anytime, even without a subscription.</p>
+          </div>
         </div>
-        <div class="principle">
-          <h3>Honest numbers</h3>
-          <p>Benchmarks anchored to your bodyweight and your lifts. Slow, real progress — measured in years, the way strength actually happens.</p>
+        <div class="row">
+          <span></span>
+          <div>
+            <h3>Honest numbers</h3>
+            <p>Benchmarks set by your bodyweight and your lifts. Progress measured in years, because that is how strength actually happens.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -277,24 +282,20 @@
 
   <!-- PRICING -->
   <section id="pricing">
-    <div class="wrap center">
-      <p class="kicker">Pricing</p>
+    <div class="wrap">
       <h2>Try everything. Then decide.</h2>
-      <p class="sub">The trial is the whole app — photo import, pasted-text import, full history, the Index. No feature tiers, no locked history.</p>
-      <div class="price-panel">
-        <p class="price-big">$4.99<small> / month</small></p>
-        <p class="price-lines">after a free <b>14-day trial</b><br>or <b>$29.99 / year</b> — about $2.50 a month<br>iPhone first · cancel anytime<br><b>We'll remind you 2 days before the trial ends</b></p>
-        <div style="margin-top:26px"><a class="btn" href="#waitlist">Get notified at launch</a></div>
-      </div>
+      <p class="sub">The trial is the whole app. Photo import, pasted-text import, full history, the Index. No tiers. No locked history.</p>
+      <p class="price-big">$4.99<small> / month</small></p>
+      <p class="price-lines">Free for 14 days, then $4.99 a month.<br>Or $29.99 a year, about $2.50 a month.<br>iPhone first. Cancel anytime.<br><b>We remind you 2 days before the trial ends.</b></p>
+      <div style="margin-top:26px"><a class="btn" href="#waitlist">Get notified at launch</a></div>
     </div>
   </section>
 
   <!-- WAITLIST -->
   <section id="waitlist">
-    <div class="wrap center">
-      <p class="kicker">Waitlist</p>
-      <h2>Be first to know.</h2>
-      <p class="sub">Paper to PR isn't on the App Store yet. Leave your email and we'll send you one email when it launches — nothing else.</p>
+    <div class="wrap">
+      <h2>Get one email at launch.</h2>
+      <p class="sub">Paper to PR is not on the App Store yet. Leave your email. We will send one email when it launches, and nothing else.</p>
       <div class="waitlist">
         <form id="waitlist-form" novalidate>
           <input id="waitlist-email" type="email" placeholder="you@example.com" autocomplete="email" required aria-label="Email address">
@@ -303,7 +304,7 @@
         </form>
         <div class="ok" id="waitlist-ok">You're on the list. We'll email you once, at launch.</div>
         <p class="err-msg" id="waitlist-err"></p>
-        <p class="note">One email at launch, nothing else. Your address is stored only for that launch email — see <a href="privacy/">Privacy</a>.</p>
+        <p class="note">One email at launch. Nothing else. Your address is stored only for that launch email. See <a href="privacy/">Privacy</a>.</p>
       </div>
     </div>
   </section>
@@ -338,7 +339,7 @@
     var email = emailEl.value.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       emailEl.classList.add('err');
-      errEl.textContent = "That email doesn't look right — mind checking it?";
+      errEl.textContent = "That email doesn't look right. Mind checking it?";
       errEl.style.display = 'block';
       return;
     }
