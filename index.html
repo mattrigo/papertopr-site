@@ -129,6 +129,17 @@
   .price-lines b{color:var(--text)}
   .center{text-align:center}.center h2{margin:0 auto}.center .sub{margin-left:auto;margin-right:auto}
 
+  .waitlist{max-width:600px;margin:0 auto;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px;text-align:center}
+  .waitlist form{display:flex;gap:12px;margin-top:26px}
+  @media(max-width:560px){.waitlist form{flex-direction:column}}
+  .waitlist input{flex:1;min-width:0;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:16px;padding:14px 16px;font-family:var(--ui)}
+  .waitlist input::placeholder{color:var(--muted)}
+  .waitlist input.err{border-color:#f87171}
+  .waitlist .ok{display:none;background:var(--accent-soft);border:1px solid rgba(52,211,153,.4);border-radius:12px;padding:14px 16px;margin-top:26px;font-size:15px}
+  .waitlist .err-msg{display:none;color:#fca5a5;font-size:14px;margin-top:12px;text-align:left}
+  .waitlist .note{font-size:13.5px;color:var(--muted);margin-top:16px}
+  .waitlist .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
   footer{border-top:1px solid var(--border);margin-top:96px;padding:36px 0 44px}
   .foot{display:flex;gap:14px;align-items:center;flex-wrap:wrap;color:var(--dim);font-size:14px}
   .foot .tile{width:25px;height:25px;border-radius:7px;overflow:hidden;border:1px solid var(--border)}
@@ -148,7 +159,7 @@
       <a href="#how">How it works</a>
       <a href="#index">The Index</a>
       <a href="#pricing">Pricing</a>
-      <a class="btn small" href="#pricing">Coming soon</a>
+      <a class="btn small" href="#waitlist">Get notified</a>
     </nav>
   </div>
 </header>
@@ -160,11 +171,11 @@
     <div class="wrap">
       <p class="label">For lifters who still write it down <span class="dot">·</span> iPhone</p>
       <h1>Keep the notebook.<br>See the <span class="grad">whole story.</span></h1>
-      <p class="lede">Paper to PR turns your handwritten training journal into your training history. <strong>Photograph a page</strong> — your workouts are transcribed, organized, and scored, so years of ink become progress you can actually see.</p>
+      <p class="lede">Paper to PR turns your handwritten training journal into your training history. <strong>Photograph a page — or paste your log as text</strong> — your workouts are transcribed, organized, and scored, so years of ink become progress you can actually see.</p>
       <div class="cta-row">
-        <a class="btn" href="#pricing">Coming soon to the App Store</a>
+        <a class="btn" href="#waitlist">Get notified at launch</a>
         <a class="btn ghost" href="#how">See how it works</a>
-        <span class="cta-sub">Free 14-day trial at launch</span>
+        <span class="cta-sub">Free 14-day trial at launch · We'll remind you before it ends</span>
       </div>
 
       <div class="transform">
@@ -172,7 +183,7 @@
           <img src="assets/journal-page.jpg" alt="A handwritten training journal page: squat, bench, row, and a dead hang, written in ink">
         </div>
         <div class="tf-arrow" aria-hidden="true">
-          <span class="chip">ONE PHOTO</span>
+          <span class="chip">ONE PHOTO · OR PASTED TEXT</span>
           <span class="arr">→</span>
         </div>
         <div class="panel">
@@ -198,7 +209,7 @@
         <div>
           <p class="kicker">The Strength Index</p>
           <h2>One number for years of work.</h2>
-          <p class="sub">Every movement pattern is scored 0–100 against elite reference lifts scaled to your ideal bodyweight — your number, not a leaderboard. Watch it climb across a training career, one journal page at a time.</p>
+          <p class="sub">Seven patterns — Squat, Hinge, Push, Pull, Arms, Carry, Core — each scored 0–100 against elite reference lifts scaled to your ideal bodyweight. Your number, not a leaderboard. Watch it climb across a training career, one journal page at a time.</p>
         </div>
         <div>
           <div class="arc-wrap">
@@ -210,14 +221,17 @@
               <div class="num"><b>55</b><span>INDEX</span></div>
             </div>
             <div class="bars" aria-hidden="true">
-              <div class="bar-row"><span>Horizontal Push</span><span class="track"><i style="width:65%;background:#ff5f78"></i></span><span class="v">65</span></div>
-              <div class="bar-row"><span>Hinge</span><span class="track"><i style="width:62%;background:#2fd184"></i></span><span class="v">62</span></div>
+              <div class="bar-row"><span>Push</span><span class="track"><i style="width:65%;background:#ff5f78"></i></span><span class="v">65</span></div>
+              <div class="bar-row"><span>Pull</span><span class="track"><i style="width:56%;background:#6487ff"></i></span><span class="v">56</span></div>
               <div class="bar-row"><span>Squat</span><span class="track"><i style="width:52%;background:#a6db3d"></i></span><span class="v">52</span></div>
-              <div class="bar-row"><span>Vertical Pull</span><span class="track"><i style="width:77%;background:#6487ff"></i></span><span class="v">77</span></div>
+              <div class="bar-row"><span>Hinge</span><span class="track"><i style="width:62%;background:#2fd184"></i></span><span class="v">62</span></div>
+              <div class="bar-row"><span>Arms</span><span class="track"><i style="width:50%;background:#f5a623"></i></span><span class="v">50</span></div>
+              <div class="bar-row"><span>Carry</span><span class="track"><i style="width:44%;background:#38bdf8"></i></span><span class="v">44</span></div>
+              <div class="bar-row"><span>Core</span><span class="track"><i style="width:48%;background:#c084fc"></i></span><span class="v">48</span></div>
             </div>
           </div>
         </div>
-        <p class="foot-note">Benchmarks rescale instantly when your ideal bodyweight changes. Illustrative lifter.</p>
+        <p class="foot-note">Benchmarks rescale instantly when your ideal bodyweight changes. Illustrative lifter. A pattern's first score is held across your whole history, so your past scores update when you train something new.</p>
       </div>
     </div>
   </section>
@@ -235,13 +249,13 @@
         </div>
         <div class="step">
           <p class="num">02</p>
-          <h3>Snap the page</h3>
-          <p>Photograph the page when you're done. Paper to PR reads your handwriting and drafts the session — you review every line before it's saved.</p>
+          <h3>Snap the page — or paste the text</h3>
+          <p>Photograph the page when you're done, or paste a plain-text log. Paper to PR drafts the session — photo pages wait for your review line by line before anything is saved, and pasted imports can be undone from the receipt.</p>
         </div>
         <div class="step">
           <p class="num">03</p>
           <h3>See the whole story</h3>
-          <p>Every session joins your full history — trends, totals, and your Strength Index across months and years of training, not just this week.</p>
+          <p>Every session joins your full history — trends, totals, and your Strength Index across months and years of training, not just this week. Big backfills run in the background: leave the app and they'll be ready when you come back.</p>
         </div>
       </div>
       <div class="principles">
@@ -251,7 +265,7 @@
         </div>
         <div class="principle">
           <h3>Private by default</h3>
-          <p>No feeds, no followers, no streaks to protect. Your training history is yours — built for the work, not an audience.</p>
+          <p>No feeds, no followers, no streaks to protect. Sign in with Apple or Google and your history syncs across devices — and you can export it anytime, even without a subscription.</p>
         </div>
         <div class="principle">
           <h3>Honest numbers</h3>
@@ -266,11 +280,30 @@
     <div class="wrap center">
       <p class="kicker">Pricing</p>
       <h2>Try everything. Then decide.</h2>
-      <p class="sub">The trial is the whole app — photo import, full history, the Index. No feature tiers, no locked history.</p>
+      <p class="sub">The trial is the whole app — photo import, pasted-text import, full history, the Index. No feature tiers, no locked history.</p>
       <div class="price-panel">
         <p class="price-big">$4.99<small> / month</small></p>
-        <p class="price-lines">after a free <b>14-day trial</b><br>or <b>$29.99 / year</b> — about $2.50 a month<br>iPhone first · cancel anytime</p>
-        <div style="margin-top:26px"><a class="btn" href="#top">Coming soon to the App Store</a></div>
+        <p class="price-lines">after a free <b>14-day trial</b><br>or <b>$29.99 / year</b> — about $2.50 a month<br>iPhone first · cancel anytime<br><b>We'll remind you 2 days before the trial ends</b></p>
+        <div style="margin-top:26px"><a class="btn" href="#waitlist">Get notified at launch</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section id="waitlist">
+    <div class="wrap center">
+      <p class="kicker">Waitlist</p>
+      <h2>Be first to know.</h2>
+      <p class="sub">Paper to PR isn't on the App Store yet. Leave your email and we'll send you one email when it launches — nothing else.</p>
+      <div class="waitlist">
+        <form id="waitlist-form" novalidate>
+          <input id="waitlist-email" type="email" placeholder="you@example.com" autocomplete="email" required aria-label="Email address">
+          <input class="hp" id="waitlist-website" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn" type="submit" id="waitlist-btn">Notify me</button>
+        </form>
+        <div class="ok" id="waitlist-ok">You're on the list. We'll email you once, at launch.</div>
+        <p class="err-msg" id="waitlist-err"></p>
+        <p class="note">One email at launch, nothing else. Your address is stored only for that launch email — see <a href="privacy/">Privacy</a>.</p>
       </div>
     </div>
   </section>
@@ -284,11 +317,49 @@
     <nav>
       <a href="#how">How it works</a>
       <a href="#index">The Index</a>
+      <a href="#waitlist">Waitlist</a>
       <a href="privacy/">Privacy</a>
       <a href="mailto:hello@papertopr.com">hello@papertopr.com</a>
     </nav>
   </div>
 </footer>
+<script>
+(function(){
+  var form = document.getElementById('waitlist-form');
+  if (!form) return;
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var emailEl = document.getElementById('waitlist-email');
+    var errEl = document.getElementById('waitlist-err');
+    var okEl = document.getElementById('waitlist-ok');
+    var btn = document.getElementById('waitlist-btn');
+    errEl.style.display = 'none'; errEl.textContent = '';
+    emailEl.classList.remove('err');
+    var email = emailEl.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      emailEl.classList.add('err');
+      errEl.textContent = "That email doesn't look right — mind checking it?";
+      errEl.style.display = 'block';
+      return;
+    }
+    btn.textContent = 'Sending…'; btn.disabled = true;
+    try {
+      var res = await fetch('https://papertopr-api.fly.dev/waitlist', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify({email: email, website: document.getElementById('waitlist-website').value || ''})
+      });
+      if (!res.ok) throw new Error('bad status ' + res.status);
+      form.style.display = 'none';
+      okEl.style.display = 'block';
+    } catch (err) {
+      btn.textContent = 'Notify me'; btn.disabled = false;
+      errEl.innerHTML = 'Something went wrong. You can also email <a href="mailto:hello@papertopr.com">hello@papertopr.com</a> and we\'ll add you.';
+      errEl.style.display = 'block';
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
